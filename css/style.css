@@ -208,16 +208,19 @@ img {
 
 .card {
     height: 100%;
-    background-color: var(--cream);
+    background-color: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 16px;
     overflow: hidden;
+    padding: 0;
 }
 
 .card-img {
+    display: block;
     width: 100%;
     height: 240px;
     object-fit: cover;
+    border-bottom: 0;
 }
 
 .card-body {
