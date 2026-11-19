@@ -1,0 +1,470 @@
+
+/* Colors */
+
+:root {
+    --bg: #faf7f2;
+    --text: #3d3431;
+    --pink: #e8cbc3;
+    --cream: #f1e5dd;
+    --brown: #c9afa3;
+    --border: #d8c5bc;
+}
+
+[data-bs-theme="dark"] {
+    --bg: #211e1d;
+    --text: #f3e9e4;
+    --pink: #493934;
+    --cream: #38302d;
+    --brown: #70574e;
+    --border: #65554e;
+}
+
+
+/* General */
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+}
+
+main.container {
+    max-width: 1200px;
+    padding-top: 32px;
+    padding-bottom: 60px;
+}
+
+h1, h2, h3, p {
+    color: var(--text);
+}
+
+p {
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* Navbar */
+
+.site-header {
+    background-color: var(--pink);
+    padding: 16px 24px;
+}
+
+.site-header .navbar {
+    background-color: var(--pink);
+}
+
+.site-header .container-fluid {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar-brand {
+    color: var(--text);
+    margin-right: auto;
+}
+
+.nav-link,
+.nav-link.active {
+    color: var(--text);
+}
+
+.nav-link.active {
+    font-weight: bold;
+}
+
+#theme {
+    padding: 6px 10px;
+    background-color: var(--brown);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#saved {
+    color: var(--text);
+    white-space: nowrap;
+}
+
+.navbar-toggler {
+    padding: 4px;
+    margin-left: 0;
+}
+
+.drawer,
+.drawer-title {
+    color: var(--text);
+}
+
+.drawer-header,
+.drawer-body {
+    background-color: var(--bg);
+}
+
+
+/* Buttons */
+
+.btn-primary,
+.btn-solid.theme-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--brown);
+    color: var(--text);
+    border: 1px solid var(--brown);
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn-subtle {
+    padding: 10px 20px;
+    background-color: var(--cream);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+
+/* Home Hero */
+
+.hero-banner,
+.hero-sidebar {
+    padding: 36px;
+    border-radius: 16px;
+}
+
+.hero-banner {
+    background-color: var(--cream);
+}
+
+.hero-sidebar {
+    background-color: var(--pink);
+}
+
+.hero-banner h1 {
+    font-size: 42px;
+    margin-bottom: 24px;
+}
+
+.hero-banner p {
+    font-size: 18px;
+    margin-bottom: 32px;
+}
+
+.hero-sidebar h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+
+/* Search and Categories */
+
+.filters {
+    margin-top: 40px;
+    margin-bottom: 32px;
+}
+
+#search {
+    padding: 14px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--cream);
+    color: var(--text);
+}
+
+#search::placeholder {
+    color: var(--text);
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+#count {
+    font-size: 14px;
+}
+
+
+/* Story Cards */
+
+.card {
+    height: 100%;
+    background-color: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 24px;
+}
+
+.card-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.card-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-buttons a,
+.card-buttons button {
+    width: auto;
+    white-space: nowrap;
+}
+
+#noResults {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.card-body > p:first-child {
+    text-transform: uppercase;
+}
+
+/* Detail Page */
+
+.article-header {
+    margin-bottom: 32px;
+}
+
+.article-header h1 {
+    font-size: 42px;
+}
+
+.article-content {
+    background-color: var(--cream);
+    padding: 30px;
+    border-radius: 16px;
+}
+
+.article-img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.flower-note {
+    margin: 24px 0;
+}
+
+.flower-note h3 {
+    font-size: 20px;
+}
+
+.article-sidebar {
+    background-color: var(--pink);
+    padding: 28px;
+    border-radius: 16px;
+}
+
+.article-sidebar h3 {
+    font-size: 14px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+#read {
+    padding: 10px 20px;
+    background-color: var(--brown);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.faq {
+    margin-top: 40px;
+}
+
+.accordion-item {
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.accordion-header {
+    cursor: pointer;
+    color: var(--text);
+}
+
+.accordion-body {
+    padding-top: 12px;
+}
+
+
+/* Contact Page */
+
+.contact {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact h1 {
+    font-size: 42px;
+}
+
+#contactForm {
+    background-color: var(--cream);
+    padding: 32px;
+    border-radius: 16px;
+}
+
+.form-label {
+    color: var(--text);
+}
+
+.form-control {
+    background-color: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+#charCount {
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.error {
+    color: #b83a3a;
+    font-size: 14px;
+}
+
+[data-bs-theme="dark"] .error {
+    color: #ff9999;
+}
+
+#confirmation {
+    margin-top: 24px;
+    padding: 16px;
+    background-color: var(--pink);
+    border-radius: 10px;
+}
+
+
+/* Footer */
+
+.site-footer {
+    padding: 32px 24px;
+    background-color: var(--pink);
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.footer-links a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+
+/* Hidden Content */
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* Mobile */
+
+@media (max-width: 767px) {
+    .site-header {
+        padding: 12px;
+    }
+
+    .site-header .container-fluid {
+        gap: 8px;
+    }
+
+    .navbar-brand {
+        font-size: 18px;
+    }
+
+    #theme {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    #saved {
+        font-size: 12px;
+    }
+
+    main.container {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
+    .hero-banner,
+    .hero-sidebar {
+        padding: 24px;
+    }
+
+    .hero-banner h1 {
+        font-size: 32px;
+    }
+
+    .hero-sidebar h2 {
+        font-size: 24px;
+    }
+
+    .card-img {
+        height: 220px;
+    }
+
+    .article-header h1,
+    .contact h1 {
+        font-size: 32px;
+    }
+
+    .article-content,
+    .article-sidebar,
+    #contactForm {
+        padding: 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+}
