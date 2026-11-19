@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Full Bloom Detail</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <header class="site-header">
+        <nav class="navbar md:navbar-expand">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Scent Archive</a>
+
+                <button class="btn-icon navbar-toggler" type="button"
+                    data-bs-toggle="drawer" data-bs-target="#menu"
+                    aria-controls="menu" aria-expanded="false"
+                    aria-label="Open menu">
+                    <span class="navbar-toggler-icon" aria-hidden="true"></span>
+                </button>
+
+                <dialog class="drawer drawer-end" id="menu"
+                    tabindex="-1" aria-labelledby="menuTitle">
+
+                    <div class="drawer-header">
+                        <h2 class="drawer-title" id="menuTitle">Menu</h2>
+                        <button class="btn-close" type="button"
+                            data-bs-dismiss="drawer" aria-label="Close menu"></button>
+                    </div>
+
+                    <div class="drawer-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="detail.html">Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </dialog>
+
+                <button type="button" id="theme" aria-pressed="false"> Dark mode</button>
+                <span id="saved" aria-live="polite">Saved: 0</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="article-header">
+            <p class="article-category">FEATURE 01 / FLORAL NOTES</p>
+            <h1>In Full Bloom</h1>
+            <p>Exploring the delicate language of floral scents.</p>
+        </section>
+
+        <section class="row g-4">
+            <div class="col-12 md:col-8">
+                <article class="article-content">
+                    <img src="images/peony.jpg" alt="A pale peony flower" class="article-img">
+
+                    <h2>The Language of Flowers</h2>
+                    <p>Floral fragrances are more than just the smell of flowers.
+                        From fresh and delicate to rich and romantic, different floral notes can create different moods and impressions.</p>
+                    <hr>
+
+                    <section class="flower-note">
+                        <h3>01 — Rose</h3>
+                        <p>Rose is one of the most recognizable floral notes in perfumery.
+                            It can smell fresh and dewy, soft and powdery, or rich and sweet.</p>
+                    </section>
+
+                    <section class="flower-note">
+                        <h3>02 — Jasmine</h3>
+                        <p>Jasmine is known for its rich, sweet, and expressive scent.
+                            It often adds warmth and depth to floral fragrances.</p>
+                    </section>
+
+                    <button type="button" id="read" aria-expanded="false" aria-controls="more"> Read more</button>
+
+                    <div id="more" hidden>
+                        <section class="flower-note">
+                            <h3>03 — Peony</h3>
+                            <p>Peony is often represented as a light, fresh, and airy floral accord.
+                                It brings a soft and delicate feeling to modern perfumes.</p>
+                        </section>
+                    </div>
+
+                    <section class="faq">
+                        <h2>FAQ</h2>
+                        <details class="accordion-item">
+                            <summary class="accordion-header">What are floral notes? </summary>
+                            <div class="accordion-body">
+                                <p>Floral notes are scents that resemble flowers, such as rose, jasmine, and peony.</p>
+                            </div>
+                        </details>
+
+                        <details class="accordion-item">
+                            <summary class="accordion-header">Do all floral scents smell the same? </summary>
+                            <div class="accordion-body">
+                                <p>No. Some floral scents are fresh and light, while others are rich and sweet.</p>
+                            </div>
+                        </details>
+                    </section>
+                </article>
+            </div>
+
+            <div class="col-12 md:col-4">
+                <aside class="article-sidebar">
+                    <h2>Article Information</h2>
+                    <hr>
+                    <div class="info-grid">
+                        <div>
+                            <h3>CATEGORY</h3>
+                            <p>Floral Notes</p>
+                        </div>
+
+                        <div>
+                            <h3>ISSUE</h3>
+                            <p>01 / Fragrance &amp; Feeling</p>
+                        </div>
+
+                        <div>
+                            <h3>FEATURED NOTES</h3>
+                            <p>Rose · Jasmine · Peony</p>
+                        </div>
+
+                        <div>
+                            <h3>ARTICLE TYPE</h3>
+                            <p>Editorial Feature</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Scent Archive</p>
+
+        <nav class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="detail.html">Details</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </footer>
+
+    <script type="module" src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body>
+</html>
