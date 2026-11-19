@@ -67,7 +67,14 @@ img {
 
 .navbar-brand {
     color: var(--text);
-    margin-right: auto;
+    margin-right: 0;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
 }
 
 .nav-link,
