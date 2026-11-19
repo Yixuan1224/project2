@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scent Archive Homepage</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+ 
+    <header class="site-header">
+        <nav class="navbar md:navbar-expand">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Scent Archive</a>
+                
+                <button type="button" id="theme" aria-pressed="false">Dark mode</button>
+                <span id="saved" aria-live="polite">Saved: 0</span>
+
+                <button class="btn-icon navbar-toggler" type="button"
+                    data-bs-toggle="drawer"
+                    data-bs-target="#menu"
+                    aria-controls="menu"
+                    aria-expanded="false"
+                    aria-label="Open menu">
+                    <span class="navbar-toggler-icon" aria-hidden="true"></span>
+                </button>
+
+                <dialog class="drawer drawer-end" id="menu"
+                    tabindex="-1" aria-labelledby="menuTitle">
+                    <div class="drawer-header">
+                        <h2 class="drawer-title" id="menuTitle">Menu</h2>
+                        <button class="btn-close" type="button"
+                            data-bs-dismiss="drawer" aria-label="Close menu"></button>
+                    </div>
+
+                    <div class="drawer-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="detail.html">Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </dialog>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="container">
+
+        <section class="row g-4">
+            <article class="col-12 md:col-8 hero-banner">
+                <h1>The Invisible Language of Scent</h1>
+                <p>Exploring the scents that shape our memories, moods, and everyday moments.</p>
+                <a href="#stories" class="btn-primary">Explore Stories</a>
+            </article>
+
+            <aside class="col-12 md:col-4 hero-sidebar">
+                <h2>About the Archive</h2>
+                <p>A digital magazine exploring the connection 
+                between fragrance, emotion, and memory.</p>
+                <hr>
+                <p> Life · Gourmand · Floral</p>
+            </aside>
+        </section>
+
+
+        <section class="filters" aria-label="Story filters">
+            <input type="search" id="search" class="form-control" placeholder="Search Stories..." aria-label="Search stories">
+            <div class="categories">
+                <button type="button" class="btn-solid theme-primary" data-category="All">All</button>
+                <button type="button" class="btn-subtle" data-category="Floral">Floral</button>
+                <button type="button" class="btn-subtle" data-category="Gourmand">Gourmand</button>
+                <button type="button" class="btn-subtle" data-category="Life">Life</button>
+            </div>
+            <p id="count" aria-live="polite">Showing 8 of 8 stories</p>
+        </section>
+        
+        <section id="stories" aria-label="Stories">
+            <div class="row g-4" id="cards">
+            </div>
+            <p id="noResults" aria-live="polite" hidden>No results found.</p>
+        </section>
+
+
+
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Scent Archive</p>
+        <nav class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="detail.html">Details</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </footer>
+    
+    <script type="module" src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
