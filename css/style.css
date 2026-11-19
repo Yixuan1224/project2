@@ -131,7 +131,7 @@ img {
 }
 
 
-/* Home Hero */
+/* Hero */
 
 .hero-banner,
 .hero-sidebar {
@@ -141,10 +141,12 @@ img {
 
 .hero-banner {
     background-color: var(--cream);
+    border: 6px solid var(--bg);
 }
 
 .hero-sidebar {
     background-color: var(--pink);
+    border: 6px solid var(--bg);
 }
 
 .hero-banner h1 {
