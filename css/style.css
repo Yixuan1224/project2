@@ -378,14 +378,20 @@ img {
 /* Footer */
 
 .site-footer {
-    padding: 32px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 8%;
     background-color: var(--pink);
-    text-align: left;
+    border-radius: 16px;
+}
+
+.site-footer p {
+    margin: 0;
 }
 
 .footer-links {
     display: flex;
-    justify-content: flex-start;
     gap: 24px;
 }
 
@@ -464,7 +470,8 @@ img {
     }
 
     .footer-links {
-        flex-wrap: wrap;
-        gap: 16px;
+        flex-wrap: column;
+        align-items: flex-start;
+        gap: 20px;
     }
 }
