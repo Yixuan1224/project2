@@ -378,14 +378,14 @@ img {
 /* Footer */
 
 .site-footer {
-    padding: 32px 24px;
+    padding: 32px 5%;
     background-color: var(--pink);
-    text-align: center;
+    text-align: left;
 }
 
 .footer-links {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 24px;
 }
 
