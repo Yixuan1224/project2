@@ -156,13 +156,14 @@ if (form) {
         event.preventDefault();
 
         const fields = ["firstName", "lastName", "email", "topic", "message", "consent"];
+        const errors = ["firstError", "lastError", "emailError", "topicError", "messageError", "consentError"];
         let valid = true;
 
         confirmation.hidden = true;
 
-        fields.forEach(id => {
+        fields.forEach((id, index) => {
             const field = document.querySelector("#" + id);
-            const error = document.querySelector("#" + (id === "firstName" ? "firstError" : id === "lastName" ? "lastError" : id + "Error"));
+            const error = document.querySelector("#" + errors[index]);
 
             if (!field.checkValidity()) {
                 valid = false;
