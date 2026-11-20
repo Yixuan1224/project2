@@ -1,0 +1,5 @@
+Scent Archive is a website that explores how different scents connect to our memories, feelings, and daily experiences. I created this website in Project 1 and continued developing it for Project 2 using Bootstrap 6 and JavaScript.
+The homepage has eight stories about different scents. Visitors can switch between dark and light modes, search for stories, filter them by category, and save the stories they like. The detail page include an article about floral scents, a frequently asked questions section, and a "Read More" button. On the contact page, visitors can fill out a form and see the character count as they type.
+I designed the desktop and mobile layouts in Figma, and then used CSS to give the website the same visual design effect. During the development process, I reviewed the code and made modifications to the website.
+I used AI to help me explain unfamiliar code, check errors, and suggest or revise parts of the JavaScript. 
+Images used in this project are from Unsplash. (https://unsplash.com/)
