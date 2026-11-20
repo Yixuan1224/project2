@@ -402,6 +402,11 @@ img {
     margin: 0;
 }
 
+.site-footer a {
+    color: var(--text);
+    text-decoration: none;
+}
+
 .footer-links {
     display: flex;
     gap: 24px;
