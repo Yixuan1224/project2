@@ -1,6 +1,5 @@
 
 /* Colors */
-
 :root {
     --bg: #faf7f2;
     --text: #3d3431;
@@ -24,7 +23,6 @@
 
 
 /* General */
-
 body {
     margin: 0;
     background-color: var(--bg);
@@ -52,7 +50,6 @@ img {
 
 
 /* Navbar */
-
 .site-header {
     background-color: var(--pink);
     padding: 16px 24px;
@@ -120,7 +117,6 @@ img {
 
 
 /* Buttons */
-
 .btn-primary,
 .btn-solid.theme-primary {
     display: inline-block;
@@ -142,7 +138,6 @@ img {
 
 
 /* Hero */
-
 .hero-banner,
 .hero-sidebar {
     padding: 36px;
@@ -176,7 +171,6 @@ img {
 
 
 /* Search and Categories */
-
 .filters {
     margin-top: 40px;
     margin-bottom: 32px;
@@ -208,7 +202,6 @@ img {
 
 
 /* Story Cards */
-
 .card {
     height: 100%;
     background-color: var(--cream);
@@ -257,7 +250,6 @@ img {
 }
 
 /* Detail Page */
-
 .article-header {
     margin-bottom: 32px;
 }
@@ -336,7 +328,6 @@ img {
 
 
 /* Contact Page */
-
 .contact {
     max-width: 800px;
     margin: 0 auto;
@@ -391,7 +382,6 @@ img {
 
 
 /* Footer */
-
 .site-footer {
     display: flex;
     align-items: center;
@@ -420,16 +410,7 @@ img {
     text-decoration: none;
 }
 
-
-/* Hidden Content */
-
-[hidden] {
-    display: none !important;
-}
-
-
 /* Mobile */
-
 @media (max-width: 767px) {
     .site-header {
         padding: 12px;

@@ -1,10 +1,12 @@
 
 const cards = document.querySelector("#cards");
 
+// Home page
 if (cards) {
 
     // Create a story card
     function cardHTML(story) {
+        const isSaved = saved.includes(`${story.id}`);
         return `
             <div class="col-12 md:col-6 lg:col-4">
                 <article class="card h-100">
@@ -17,7 +19,7 @@ if (cards) {
 
                         <div class="card-buttons">
                             <a href="detail.html" class="btn-solid theme-primary">Details</a>
-                            <button type="button" class="${saved.includes(story.id) ? 'btn-solid theme-primary' : 'btn-subtle'}" data-save="${story.id}" aria-pressed="${saved.includes(story.id)}">${saved.includes(story.id) ? 'Saved' : 'Save'}</button>
+                            <button type="button" class="${isSaved ? 'btn-solid theme-primary' : 'btn-subtle'}" data-save="${story.id}" aria-pressed="${isSaved}">${isSaved ? 'Saved' : 'Save'}</button>
                         </div>
                     </div>
                 </article>
@@ -25,165 +27,194 @@ if (cards) {
         `;
     }
 
-    let category = "All";
+    let activeCategory = "All";
+    let query = "";
     let saved = [];
     const search = document.querySelector("#search");
     const noResults = document.querySelector("#noResults");
+    const count = document.querySelector("#count");
 
     // Filter and display stories
-    function showCards() {
-        let results = stories;
+    function update() {
+        const shown = stories.filter(story =>
+            (activeCategory === "All" || story.category === activeCategory)
+            && (story.title.toLowerCase().includes(query)
+            || story.description.toLowerCase().includes(query)));
 
-        if (category !== "All") {
-            results = results.filter(story => story.category === category);
-        }
+        cards.innerHTML = shown.map(cardHTML).join("");
+        count.textContent = `Showing ${shown.length} of ${stories.length} stories`;
 
-        let keyword = search.value.toLowerCase();
-
-        results = results.filter(story =>
-            story.title.toLowerCase().includes(keyword) ||
-            story.description.toLowerCase().includes(keyword)
-        );
-
-        cards.innerHTML = results.map(cardHTML).join("");
-        document.querySelector("#count").textContent = `Showing ${results.length} of ${stories.length} stories`;
-
-        if (results.length === 0) {
-            noResults.hidden = false;
+        if (shown.length === 0) {
+            noResults.classList.remove("d-none");
         } else {
-            noResults.hidden = true;
+            noResults.classList.add("d-none");
         }
     }
 
+    const buttons = document.querySelectorAll("[data-category]");
+
+    // Update the active category
+    for (const button of buttons) {
+        button.addEventListener("click", () => {
+            activeCategory = button.getAttribute("data-category");
+
+            for (const btn of buttons) {
+                btn.classList.remove("btn-solid", "theme-primary");
+                btn.classList.add("btn-subtle");
+                btn.setAttribute("aria-pressed", false);
+            }
+            button.classList.remove("btn-subtle");
+            button.classList.add("btn-solid", "theme-primary");
+            button.setAttribute("aria-pressed", true);
+
+            update();
+        });
+    }
+    
+    // Update search results
+    search.addEventListener("input", () => {
+        query = search.value.toLowerCase();
+        update();
+    });
+
     // Save or unsave a story
-    function saveStory(id) {
+    cards.addEventListener("click", event => {
+        const button = event.target.closest("[data-save]");
+        if (!button) return;
+
+        const id = button.getAttribute("data-save");
+
         if (saved.includes(id)) {
             saved = saved.filter(item => item !== id);
         } else {
             saved.push(id);
         }
 
+        const isSaved = saved.includes(id);
+
+        button.classList.toggle("btn-solid");
+        button.classList.toggle("theme-primary");
+        button.classList.toggle("btn-subtle");
+        button.textContent = isSaved ? "Saved" : "Save";
+        button.setAttribute("aria-pressed", isSaved);
+
         document.querySelector("#saved").textContent = `Saved: ${saved.length}`;
-        showCards();
-    }
-
-    const buttons = document.querySelectorAll("[data-category]");
-
-    buttons.forEach(button => {
-        button.addEventListener("click", () => {
-            category = button.dataset.category;
-
-            buttons.forEach(btn => {
-                btn.classList.remove("btn-solid", "theme-primary");
-                btn.classList.add("btn-subtle");
-            });
-
-            button.classList.remove("btn-subtle");
-            button.classList.add("btn-solid", "theme-primary");
-
-            showCards();
-        });
     });
 
-    search.addEventListener("input", showCards);
-
-    cards.addEventListener("click", (event) => {
-        const button = event.target.closest("[data-save]");
-
-        if (button) {
-            saveStory(Number(button.dataset.save));
-        }
-    });
-
-    showCards();
+    update();
 }
 
 const theme = document.querySelector("#theme");
 
-// Switch between light and dark mode
-function changeTheme() {
-    const html = document.documentElement;
+// Switch between light and dark mode.
+theme.addEventListener("click", () => {
+    const root = document.documentElement;
+    const goDark = root.getAttribute("data-bs-theme") !== "dark";
 
-    if (html.getAttribute("data-bs-theme") === "light") {
-        html.setAttribute("data-bs-theme", "dark");
-        theme.textContent = "Light mode";
-        theme.setAttribute("aria-pressed", "true");
-    } else {
-        html.setAttribute("data-bs-theme", "light");
-        theme.textContent = "Dark mode";
-        theme.setAttribute("aria-pressed", "false");
-    }
-}
+    root.setAttribute("data-bs-theme", goDark ? "dark" : "light");
+    theme.textContent = goDark ? "Light mode" : "Dark mode";
+    theme.setAttribute("aria-pressed", goDark);
+});
 
-theme.addEventListener("click", changeTheme);
-
+// Detail page
 const read = document.querySelector("#read");
 const more = document.querySelector("#more");
 
-// Show or hide more article content
-function readMore() {
-    if (more.hidden) {
-        more.hidden = false;
-        read.textContent = "Show less";
-        read.setAttribute("aria-expanded", "true");
-    } else {
-        more.hidden = true;
-        read.textContent = "Read more";
-        read.setAttribute("aria-expanded", "false");
-    }
-}
-
 if (read) {
-    read.addEventListener("click", readMore);
+    // Show or hide more article content
+    read.addEventListener("click", () => {
+        const isHidden = more.classList.toggle("d-none");
+        read.textContent = isHidden ? "Read more" : "Show less";
+        read.setAttribute("aria-expanded", !isHidden);
+    });
 }
 
+// Contact page
 const form = document.querySelector("#contactForm");
 
 if (form) {
     const message = document.querySelector("#message");
     const charCount = document.querySelector("#charCount");
     const confirmation = document.querySelector("#confirmation");
+    const firstName = document.querySelector("#firstName");
+    const lastName = document.querySelector("#lastName");
+    const email = document.querySelector("#email");
+    const topic = document.querySelector("#topic");
+    const consent = document.querySelector("#consent");
+    const fields = [firstName, lastName, email, topic, message, consent];
+
+    // Show an error message
+    function showError(input, message) {
+        input.classList.add("is-invalid");
+        document.querySelector(`#${input.id}Feedback`).textContent = message;
+    }
+    // Clear errors when a field becomes valid
+    for (const field of fields) {
+        field.addEventListener("input", () => {
+            if (field.validity.valid) {
+                clearError(field);
+            }
+        });
+    }
+    
+    // Clear an error message
+    function clearError(input) {
+        input.classList.remove("is-invalid");
+        document.querySelector(`#${input.id}Feedback`).textContent = "";
+    }
 
     // Update the message character count
     function countCharacters() {
         charCount.textContent = `${message.value.length} characters`;
     }
-
     message.addEventListener("input", countCharacters);
 
     // Check the form and show messages
     function checkForm(event) {
         event.preventDefault();
+        confirmation.classList.add("d-none");
 
-        const fields = ["firstName", "lastName", "email", "topic", "message", "consent"];
-        const errors = ["firstError", "lastError", "emailError", "topicError", "messageError", "consentError"];
-        let valid = true;
+        if (firstName.validity.valueMissing) {
+            showError(firstName, "Please enter your first name");
+        }
 
-        confirmation.hidden = true;
+        if (lastName.validity.valueMissing) {
+            showError(lastName, "Please enter your last name");
+        }
 
-        fields.forEach((id, index) => {
-            const field = document.querySelector("#" + id);
-            const error = document.querySelector("#" + errors[index]);
+        if (email.validity.valueMissing) {
+            showError(email, "Please enter your email");
+        } else if (email.validity.typeMismatch) {
+            showError(email, "Enter a valid email address");
+        }
 
-            if (!field.checkValidity()) {
-                valid = false;
-                error.textContent = "Please complete this field correctly.";
-                field.classList.add("is-invalid");
-            } else {
-                error.textContent = "";
-                field.classList.remove("is-invalid");
-            }
-        });
+        if (topic.validity.valueMissing) {
+            showError(topic, "Please select a topic");
+        }
 
-        if (valid) {
-            const name = document.querySelector("#firstName").value;
-            confirmation.textContent = `Thank you, ${name}! Your message has been received.`;
-            confirmation.hidden = false;
-            form.reset();
-            countCharacters();
+        if (message.validity.valueMissing) {
+            showError(message, "Please enter your message");
+        }
+
+        if (consent.validity.valueMissing) {
+            showError(consent, "Please agree to be contacted");
+        }
+
+        // Stop submission if there are errors
+        if (form.querySelector(".is-invalid")) {
+            return;
+        }
+
+        // Show confirmation and reset the form
+        confirmation.textContent = `Thank you, ${firstName.value}! Your message has been received.`;
+        confirmation.classList.remove("d-none");
+        form.reset();
+        countCharacters();
+
+        for (const field of fields) {
+            clearError(field);
         }
     }
 
     form.addEventListener("submit", checkForm);
 }
-

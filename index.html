@@ -77,18 +77,18 @@
         <section class="filters" aria-label="Story filters">
             <input type="search" id="search" class="form-control" placeholder="Search Stories..." aria-label="Search stories">
             <div class="categories">
-                <button type="button" class="btn-solid theme-primary" data-category="All">All</button>
-                <button type="button" class="btn-subtle" data-category="Floral">Floral</button>
-                <button type="button" class="btn-subtle" data-category="Gourmand">Gourmand</button>
-                <button type="button" class="btn-subtle" data-category="Life">Life</button>
+                <button type="button" class="btn-solid theme-primary" data-category="All" aria-pressed="true">All</button>
+                <button type="button" class="btn-subtle" data-category="Floral" aria-pressed="false">Floral</button>
+                <button type="button" class="btn-subtle" data-category="Gourmand" aria-pressed="false">Gourmand</button>
+                <button type="button" class="btn-subtle" data-category="Life" aria-pressed="false">Life</button>
             </div>
-            <p id="count" aria-live="polite">Showing 8 of 8 stories</p>
+            <p id="count" role="status" aria-live="polite">Showing 8 of 8 stories</p>
         </section>
         
         <section id="stories" aria-label="Stories">
             <div class="row g-4" id="cards">
             </div>
-            <p id="noResults" aria-live="polite" hidden>No results found.</p>
+            <p id="noResults" class="d-none" aria-live="polite">No results found.</p>
         </section>
 
 
